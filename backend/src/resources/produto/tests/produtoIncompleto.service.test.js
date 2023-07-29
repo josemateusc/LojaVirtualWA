@@ -57,6 +57,20 @@ describe('Produto Service', () => {
   });
   */
 
+  it('should get specific product', async () => {
+    const productId = 'b4908dd0-2e39-11ee-9d61-8ba769a09cf1';
+
+    const response = await request(server).get(`/v1/produto/${productId}`);
+
+    expect(response.statusCode).toEqual(200);
+    expect(response.body).toEqual({
+      id: 'b4908dd0-2e39-11ee-9d61-8ba769a09cf1',
+      nome: 'lapis',
+      preco: 123,
+      estoque: 2,
+    });
+  });
+
   afterAll(async () => {
     await connection.close();
   });
