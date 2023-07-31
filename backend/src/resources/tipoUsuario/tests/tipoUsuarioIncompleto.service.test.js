@@ -13,11 +13,11 @@ describe('tipoUsuario Service', () => {
   });
   */
   it('should get all user types', async () => {
-    const response = await request(server).get('/tipo-usuario');
+    const res = await request(server.server).get('/v1/tipo-usuario');
 
-    expect(response.status).toEqual(200);
-    expect(Array.isArray(response.body)).toBeTruthy();
-    expect(response.body.length).toBeGreaterThan(0);
+    expect(res.status).toEqual(200);
+    expect(Array.isArray(res.body)).toBeTruthy();
+    expect(res.body.length).toBeGreaterThan(0);
   });
 
   afterAll(async () => {

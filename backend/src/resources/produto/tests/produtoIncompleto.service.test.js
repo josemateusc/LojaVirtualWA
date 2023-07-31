@@ -58,17 +58,16 @@ describe('Produto Service', () => {
   */
 
   it('should get specific product', async () => {
-    const productId = 'b4908dd0-2e39-11ee-9d61-8ba769a09cf1';
+    const productId = '681651d0-2fea-11ee-8749-83da04ce9de1';
 
-    const response = await request(server).get(`/v1/produto/${productId}`);
+    const res = await request(server.server).get(`/v1/produto/${productId}`);
 
-    expect(response.statusCode).toEqual(200);
-    expect(response.body).toEqual({
-      id: 'b4908dd0-2e39-11ee-9d61-8ba769a09cf1',
-      nome: 'lapis',
-      preco: 123,
-      estoque: 2,
-    });
+    expect(res.statusCode).toEqual(200);
+
+    expect(res.body.id).toEqual('681651d0-2fea-11ee-8749-83da04ce9de1');
+    expect(res.body.nome).toEqual('Elegant Rubber Soap');
+    expect(res.body.preco).toEqual(773);
+    expect(res.body.estoque).toEqual(7);
   });
 
   afterAll(async () => {
