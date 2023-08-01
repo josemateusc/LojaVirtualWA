@@ -58,16 +58,16 @@ describe('Produto Service', () => {
   */
 
   it('should get specific product', async () => {
-    const productId = '681651d0-2fea-11ee-8749-83da04ce9de1';
+    const productId = 'b4908dd0-2e39-11ee-9d61-8ba769a09cf1';
 
     const res = await request(server.server).get(`/v1/produto/${productId}`);
 
     expect(res.statusCode).toEqual(200);
 
-    expect(res.body.id).toEqual('681651d0-2fea-11ee-8749-83da04ce9de1');
-    expect(res.body.nome).toEqual('Elegant Rubber Soap');
-    expect(res.body.preco).toEqual(773);
-    expect(res.body.estoque).toEqual(7);
+    expect(res.body.id).toEqual(productId);
+    expect(res.body.nome).toEqual('lapis');
+    expect(res.body.preco).toEqual(123);
+    expect(res.body.estoque).toEqual(2);
   });
 
   afterAll(async () => {

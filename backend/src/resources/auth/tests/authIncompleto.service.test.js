@@ -31,8 +31,6 @@ describe('Auth Service Signup', () => {
 
     const res = await request(server.server).post('/v1/login').send(usuario);
 
-    console.log(res);
-
     expect(res.statusCode).toEqual(401);
 
     expect(res.body.msg).toEqual('Email e/ou senha incorretos');
